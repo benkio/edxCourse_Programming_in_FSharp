@@ -1,19 +1,16 @@
+module FibonacciRecursion
 (*
  * Hands on the conditionals and loops in f#, second module of the course.
- * Fibonacci algorithm done by loop expressions
+ * Fibonacci algorithm done by recursive function
  *)
 
 open System
 
-let fibonacci n =
-    let mutable first = 0
-    let mutable second = 1
-    let mutable temp = 0
-        for index = 1 to n do
-            temp <- first + second
-            first <- second
-            second <- temp
-    first
+let rec fibonaccirecursive n =
+     if n <= 2 then 1
+        elif n = 0 then 0
+        else
+            fibonaccirecursive (n - 1) + fibonaccirecursive (n - 2)
 
 let checkvalue (argv : string []) : int =
     if argv.Length > 0 then
@@ -28,10 +25,12 @@ let checkvalue (argv : string []) : int =
         if canparse then keyin
         else 0
 
+(*
 [<EntryPoint>]
 let main argv =
     let input = checkvalue argv
-    let calc = fibonacci input
+    let calc = fibonaccirecursive input
     Console.WriteLine(calc)
-    Console.ReadKey()
+    Console.ReadKey() |> ignore
     0 // return an integer exit code
+*)
