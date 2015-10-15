@@ -1,4 +1,4 @@
-module TypePractice =
+module TypePractice
 
     open System
 
@@ -11,10 +11,10 @@ module TypePractice =
     let GetUser username userage = {
         name = username
         age = userage
-        id = username.Length * userage 
+        id = username.Length * userage
     }
-                       
-    [<EntryPoint>]    
+
+    [<EntryPoint>]
     let main argv =
         Console.WriteLine("Enter the main users name: ")
         let name = Console.ReadLine()
@@ -33,7 +33,7 @@ module TypePractice =
                       let age = Console.ReadLine()
                       yield GetUser name (int age)
                   else run <- false ]
-        
+
         let sameid =
             seq {
                 for x in people do
@@ -42,7 +42,5 @@ module TypePractice =
 
         for x in sameid do
             Console.WriteLine(x.name)
-        Console.ReadKey()
+        Console.ReadKey() |> ignore
         0 // return an integer exit code
-
-    
