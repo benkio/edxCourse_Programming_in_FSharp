@@ -26,3 +26,20 @@ module Assignment2Part2
                  then outputPersonDetails + "Field: Person " + name + " is a kid"
                  else outputPersonDetails + "Input Invalid - cannot compute correctly"
          else outputPersonDetails + "Field: Person " + name + " is a teenager"
+
+ [<EntryPoint>]
+ let main argv =
+   Console.Write("How many person do you want to compute? ")
+   let input = Console.ReadLine()
+   let numberOfPersons = checkIntValue input
+   let mutable output = ""
+   for personId = 1 to numberOfPersons do
+      printf "Insert the name of the Person %i:" personId
+      let personName = Console.ReadLine()
+      printf "Insert the age of the Person %i: " personId
+      let input = Console.ReadLine()
+      let personAge = checkIntValue input
+      output <- output + compute personName personAge + Environment.NewLine
+   printf "%s" output
+   Console.ReadLine |> ignore
+   0
