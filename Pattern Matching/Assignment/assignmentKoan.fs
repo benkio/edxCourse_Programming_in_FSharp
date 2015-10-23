@@ -1,7 +1,7 @@
-module assignment =
+module assignmentKoan =
 
 (*
- *
+ * Assignment Koan on the pattern matching section.
  *)
 
 type MyRecord =

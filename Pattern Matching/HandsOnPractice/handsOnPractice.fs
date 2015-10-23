@@ -1,7 +1,7 @@
 module handsOnPractice =
-    (*
+(*
  * Hands on practice on Pattern Matching
-*)
+ *)
     open System
     open System.IO
 
