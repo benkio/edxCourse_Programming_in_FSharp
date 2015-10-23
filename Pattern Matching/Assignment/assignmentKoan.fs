@@ -1,4 +1,4 @@
-module assignmentKoan =
+module assignment =
 
 (*
  *
