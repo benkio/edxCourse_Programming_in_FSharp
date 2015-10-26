@@ -2,7 +2,7 @@ module assignmentProblem =
 (*
  * Assignment Problem on Pattern Matching
  * Staring from the Hands on practice idea and https://en.wikipedia.org/wiki/Trajectory_of_a_projectile formulas
-*)
+ *)
     open System
     open System.IO
 
@@ -27,7 +27,7 @@ module assignmentProblem =
 
     let gravity = 9.81
 
-    let startingAngle x y = if x > 0.0 then Math.Atan (y/x) else raise (System.DivideByZeroException("starting angle"))
+    let startingAngle x y = if x > 0.0 then Math.Atan (y/x) else 45.0
 
     let calculateAngleOfReach distance speed =
       if speed > 0.0
@@ -51,7 +51,8 @@ module assignmentProblem =
           let angle2 = Math.Atan ((Math.Pow(speed,2.0) - squareRoot )/denominator)
           if (angle1 > 0.0) then angle1 else angle2
         else
-          raise (System.DivideByZeroException(""))
+          0.0
+          //raise (System.DivideByZeroException("angle to reach target" + denominator.ToString() + " - " + squareRoot.ToString()))
 
     let GetFile =
         Console.Write("Enter the full path to the name of the input file: ")
@@ -136,7 +137,7 @@ module assignmentProblem =
             Console.Write("File Not Found. Press a key to exit")
             Console.ReadKey() |> ignore
             -1
-        | _ ->
-            Console.Write("Something else happened")
+        | e ->
+            Console.Write("Something else happened: " + e.Message)
             Console.ReadKey() |> ignore
             -1
